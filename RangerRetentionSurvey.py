@@ -93,10 +93,68 @@ def main(input_data):
         survey_res['Did you Ranger at Burning Man in 2019?'] == 'Yes']
     rangered_2019 = normalize_genders(rangered_2019)
 
+    make_bar('How satisfied are you with your overall experience as a Ranger?',
+             'Did you Ranger at Burning Man in 2019?',
+             survey_res)
+    plt.savefig(
+        'img/overall_exp_cond_on_ranger_this_year.png',
+        bbox_inches="tight", pad_inches=1)
+
+    make_bar('How appreciated do you feel by the Ranger department?',
+             'Did you Ranger at Burning Man in 2019?', survey_res)
+    plt.savefig(
+        'img/appreciated_cond_on_ranger_this_year.png',
+        bbox_inches="tight", pad_inches=1)
+
+    make_bar(
+        'If you had a friend that was clearly a Rangerly-type, would you recommend that they volunteer for Rangers?',
+        'Did you Ranger at Burning Man in 2019?', survey_res,
+        table_row_width_scale=2)
+    plt.savefig(
+        'img/rec_cond_on_ranger_this_year.png',
+        bbox_inches="tight", pad_inches=1)
+
+    make_bar('Do you plan to Ranger at Burning Man in 2020?',
+             'Did you Ranger at Burning Man in 2019?', survey_res, rotation=90)
+    plt.savefig(
+        'img/ranger_next_year_cond_on_ranger_this_year.png',
+        bbox_inches="tight", pad_inches=1)
+
+    make_bar('How included do you feel in the Rangers?',
+             'Did you Ranger at Burning Man in 2019?', survey_res)
+    plt.savefig(
+        'img/how_included_cond_on_ranger_this_year.png',
+        bbox_inches="tight", pad_inches=1)
+
+
+
+    # We should probably only really care about how included people feel if
+    # they rangered this year.
     make_bar('How included do you feel in the Rangers?',
              'Do you identify as a person of color?', rangered_2019)
     plt.savefig(
         'img/how_included_cond_on_poc_filtered_by_ranger_2019.png',
+        bbox_inches="tight", pad_inches=1)
+
+    make_bar('How included do you feel in the Rangers?',
+             'What is your primary gender identity (if any)?\n(Normalized)',
+             rangered_2019)
+    plt.savefig(
+        'img/how_included_cond_on_gender_filtered_by_ranger_2019.png',
+        bbox_inches="tight", pad_inches=1)
+
+    make_bar('How satisfied are you with your overall experience as a Ranger?',
+             'What is your primary gender identity (if any)?\n(Normalized)',
+             rangered_2019)
+    plt.savefig(
+        'img/overall_exp_cond_on_gender_filtered_by_ranger_2019.png',
+        bbox_inches="tight", pad_inches=1)
+
+    make_bar('How appreciated do you feel by the Ranger department?',
+             'What is your primary gender identity (if any)?\n(Normalized)',
+             rangered_2019)
+    plt.savefig(
+        'img/appreciated_cond_on_gender_filtered_by_ranger_2019.png',
         bbox_inches="tight", pad_inches=1)
 
 
