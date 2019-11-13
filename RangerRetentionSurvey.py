@@ -3,6 +3,8 @@
 
 
 import pandas as pd
+import matplotlib
+matplotlib.use('agg')
 import matplotlib.pyplot as plt
 import seaborn as sb
 import click
@@ -74,8 +76,8 @@ def normalize_genders(df):
 
 
 @click.command()
-@click.option('--input_data', prompt='Path survey data:',
-              help='The file path to csv file containing survey data.')
+@click.option('--input_data', help='The file path to csv file containing '
+                                   'survey data.')
 def main(input_data):
     survey_res = pd.read_csv(input_data)
 
