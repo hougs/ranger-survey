@@ -1,0 +1,3 @@
+[filter "ipynbfilter"]
+        clean = python -m nbfilter.clean
+
